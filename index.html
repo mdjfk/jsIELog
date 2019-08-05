@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>outputLog</title>
+	<script src="./log.js"></script>
+</head>
+
+<body>
+	<div style="height:200px;"></div>
+	<button onclick="btnClicked(this)">sddfsd</button>
+	<button onclick="btnClicked(this)">getLog</button>
+	<button onclick="btnClicked(this)">downloadLog</button>
+	<button onclick="btnClicked(this)">outputLog</button>
+
+	<script type="text/javascript">
+		function btnClicked(e) {
+			myLog.printLog('btn ' + e.innerHTML + ' is clicked');
+		}
+		// myLog.printLog('function 2');
+		// myLog.printLog('function 3');
+		// myLog.printLog('function 4');
+	</script>
+</body>
+
+</html>
