@@ -4,23 +4,23 @@
 <head>
 	<title>outputLog</title>
 	<script src="./log.js"></script>
-	<script src="./myLog.js"></script>
+	<script src="./myJs_log.js"></script>
 </head>
 
 <body>
 	<div style="height:200px;"></div>
-	<button onclick="btnClicked(this)">sddfsd</button>
-	<button onclick="btnClicked(this)">getLog</button>
-	<button onclick="btnClicked(this)">downloadLog</button>
-	<button onclick="btnClicked(this)">outputLog</button>
+	<button onclick="btnClicked(this)">BUTTON-1</button>
+	<button onclick="btnClicked(this)">BUTTON-2</button>
+	<button onclick="btnClicked(this)">BUTTON-3</button>
+	<button onclick="btnClicked(this)">BUTTON-4</button>
 
 	<script type="text/javascript">
 		function btnClicked(e) {
-			myLog.printLog('btn ' + e.innerHTML + ' is clicked');
+			log.printLog('btn ' + e.innerHTML + ' is clicked');
 		}
-		// myLog.printLog('function 2');
-		// myLog.printLog('function 3');
-		// myLog.printLog('function 4');
+		// log.printLog('function 2');
+		// log.printLog('function 3');
+		// log.printLog('function 4');
 
 		window.onload = function () {
 			PrintRunLog("This is a comment");

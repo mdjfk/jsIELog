@@ -1,10 +1,10 @@
-var myLog = {
+var log = {
     fso: new ActiveXObject("Scripting.FileSystemObject"),
     printLog: function (text) {
         var f1,
             absolutePath = window.location.href,
             curPath = absolutePath.substr(absolutePath.lastIndexOf("///") + 3, absolutePath.lastIndexOf("/")).split("/"),
-            time = "[" + this.getTime() + "]:";
+            dateAndTime = "[" + this.getTime() + "]:";
 
         curPath.pop();
         filePath = curPath.join("\\") + "\\" + this.getDate() + "-log.txt";
@@ -18,15 +18,15 @@ var myLog = {
                 f1 = this.fso.OpenTextFile(filePath, 8, true);
             }
 
-            f1.WriteLine(time + text);
+            f1.WriteLine(dateAndTime + text);
             f1.Close();
         } catch (e) {
             alert(e.message);
-            // 	alert('请开启IE写日志权限！');
+            // 	alert('Please authorize IE to write log files');
         }
 
     },
-    /** 返回当前时间*/
+    /** Get current date and time*/
     getTime: function () {
         var date = new Date();
         return date.getFullYear() +
@@ -37,7 +37,7 @@ var myLog = {
             ":" + this.FmTimeNum(date.getSeconds()) +
             "." + this.FmTimeNum(date.getMilliseconds());
     },
-
+    /** Another way of returing current date and time*/
     getTime2: function () {
         var date = new Date();
         return date.getFullYear() +
@@ -48,14 +48,14 @@ var myLog = {
             ":" + date.getSeconds().slice(-2) +
             "." + date.getMilliseconds().slice(-2);
     },
-    /** 返回当前日期 */
+    /** Return date */
     getDate: function () {
         var date = new Date();
         return date.getFullYear() +
             "-" + this.FmTimeNum(date.getMonth() + 1) +
             "-" + this.FmTimeNum(date.getDate());
     },
-    /** 格式化时间数值（个位数补全加0显示）*/
+    /** Format numbers(two digits)*/
     FmTimeNum: function (num) {
         return (num < 10 ? "0" : "") + num;
     }

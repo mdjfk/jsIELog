@@ -1,6 +1,6 @@
 var myJs_log = {
-    TYPE_RUN: 'Run',//日志类型为运行
-    TYPE_ERR: 'Err',//日志类型为错误
+    TYPE_RUN: 'RUN',//日志类型为运行
+    TYPE_ERR: 'ERR',//日志类型为错误
     WRITE_RUN_FILE: 'run.txt',//运行日志文件
     WRITE_ERR_FILE: 'err.txt',//错误日志文件
     MAX_FILE_SIZE: 100 * 1024 * 1024,//设置单日志最大为100MB
@@ -110,8 +110,7 @@ function PrintErrLog(logText) {
 
 (function () {
     try {
-        myJs_log.ipcc_fso =
-            new ActiveXObject("Scripting.FileSystemObject");
+        myJs_log.ipcc_fso = new ActiveXObject("Scripting.FileSystemObject");
     } catch (e) {
         alert('请开启IE写日志权限！');
     }
