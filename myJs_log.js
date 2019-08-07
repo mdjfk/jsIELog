@@ -95,18 +95,19 @@ var myJs_log = {
         var nextBakName = bakName.substr(0, bakName.length - 1) +
             (parseInt(num) + 1);
         return nextBakName;
+    },
+
+    /** 记录运行日志(内容) */
+    PrintRunLog: function (logText) {
+        this.printLog(this.TYPE_RUN, logText);
+    },
+
+    /** 记录错误日志(内容) */
+    PrintErrLog: function (logText) {
+        this.printLog(this.TYPE_ERR, logText);
     }
 };
 
-/** 记录运行日志(内容) */
-function PrintRunLog(logText) {
-    myJs_log.printLog(myJs_log.TYPE_RUN, logText);
-}
-
-/** 记录错误日志(内容) */
-function PrintErrLog(logText) {
-    myJs_log.printLog(myJs_log.TYPE_ERR, logText);
-}
 
 (function () {
     try {
