@@ -1,23 +1,24 @@
 var log = {
     fso: new ActiveXObject("Scripting.FileSystemObject"),
+    LOG_FOLDER_NAME: 'LOG',
     printLog: function (text) {
         var f1,
             absolutePath = window.location.href,
-            curPath = absolutePath.substr(absolutePath.lastIndexOf("///") + 3, absolutePath.lastIndexOf("/")).split("/"),
-            dateAndTime = "[" + this.getTime() + "]:";
-
+            dateAndTime = "[" + this.getTime() + "]:",
+            curPath = absolutePath.substr(absolutePath.lastIndexOf("///") + 3, absolutePath.lastIndexOf("/")).split("/");
         curPath.pop();
-        filePath = curPath.join("\\") + "\\" + this.getDate() + "-log.txt";
-        // alert(filePath);
+        var logPath = curPath.join("\\") + "\\" + this.LOG_FOLDER_NAME,
+            filePath = logPath + "\\" + this.getDate() + "-log.txt";
 
         try {
-
+            if (!this.fso.FolderExists(logPath)) {
+                this.fso.CreateFolder(logPath);
+            }
             if (!this.fso.FileExists(filePath)) {
                 f1 = this.fso.CreateTextFile(filePath, false);
             } else {
                 f1 = this.fso.OpenTextFile(filePath, 8, true);
             }
-
             f1.WriteLine(dateAndTime + text);
             f1.Close();
         } catch (e) {
