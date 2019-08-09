@@ -27,6 +27,7 @@ var log = {
         }
 
     },
+
     /** Get current date and time*/
     getTime: function () {
         var date = new Date();
@@ -38,6 +39,7 @@ var log = {
             ":" + this.FmTimeNum(date.getSeconds()) +
             "." + this.FmTimeNum(date.getMilliseconds());
     },
+
     /** Another way of returing current date and time*/
     getTime2: function () {
         var date = new Date();
@@ -49,6 +51,7 @@ var log = {
             ":" + date.getSeconds().slice(-2) +
             "." + date.getMilliseconds().slice(-2);
     },
+
     /** Return date */
     getDate: function () {
         var date = new Date();
@@ -56,6 +59,7 @@ var log = {
             "-" + this.FmTimeNum(date.getMonth() + 1) +
             "-" + this.FmTimeNum(date.getDate());
     },
+
     /** Format numbers(two digits)*/
     FmTimeNum: function (num) {
         return (num < 10 ? "0" : "") + num;
