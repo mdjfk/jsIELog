@@ -27,6 +27,7 @@ var myJs_log = {
     printLog: function (type, logText) {
         // 日志中记录当前时间
         var date = this.GetYearMonth();
+        // 注意编码方式，尝试写入中文字符可能会导致错误（WriteLine）
         logText = date +
             " [" + type + "] " + logText;
         // 记录日志的文件名称

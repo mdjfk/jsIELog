@@ -10,6 +10,7 @@ var log = {
         var logPath = curPath.join("\\") + "\\" + this.LOG_FOLDER_NAME,
             filePath = logPath + "\\" + this.getDate() + "-log.txt";
 
+        // 注意编码方式，尝试写入中文字符可能会导致错误（WriteLine）
         try {
             if (!this.fso.FolderExists(logPath)) {
                 this.fso.CreateFolder(logPath);
